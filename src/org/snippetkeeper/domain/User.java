@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class User {
 
@@ -16,6 +18,7 @@ public class User {
 
 	private boolean enabled;
 
+	@NotEmpty
 	private String username;
 
 	private String password;

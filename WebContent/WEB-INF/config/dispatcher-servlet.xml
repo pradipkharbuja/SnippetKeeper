@@ -24,5 +24,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- routing the resources folder, if path has resources redirect to WEB-INF/resources -->
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+
 	<import resource="internationalization.xml" />
 </beans>
