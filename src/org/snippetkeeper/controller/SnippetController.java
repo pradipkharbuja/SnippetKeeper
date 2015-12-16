@@ -11,12 +11,11 @@ import org.snippetkeeper.domain.User;
 import org.snippetkeeper.service.CategoryService;
 import org.snippetkeeper.service.LanguageService;
 import org.snippetkeeper.service.SnippetService;
+import org.snippetkeeper.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,6 +32,9 @@ public class SnippetController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addSnippet(@ModelAttribute("newSnippet") Snippet snippet, Model model) {
@@ -51,6 +53,9 @@ public class SnippetController {
 		if (result.hasErrors()) {
 			return "addSnippet";
 		}
+		
+		User user = userService.getUserByUsername("admin");
+		snippet.setUser(user);
 		
 		snippetService.save(snippet);
 		return "addSnippet";

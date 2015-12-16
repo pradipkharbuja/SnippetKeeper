@@ -2,19 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Add Snippet</title>
-<link href='<spring:url value="/css/style.css"/>' rel="stylesheet" />
-</head>
-<body>
+<%@include file="header.jsp" %>
 
 	<div class="container">
 		<form:form commandName="newSnippet" action="add" method="post">
-		
+
 			<form:errors path="*" cssStyle="color: red" />
-			
+
 			<div class="form-element">
 				<label for="title">Title</label>
 				<form:input path="title" />
@@ -24,16 +18,20 @@
 				<label for="language.langName">Language</label>
 				<form:select path="language">
 					<form:option value="" label='-- SELECT LANGUAGE --' />
-					<form:options items="${languagesAvilable}" itemLabel="langName" itemValue="langName" />
+					<form:options items="${languagesAvilable}" itemLabel="langName"
+						itemValue="langName" />
 				</form:select>
 			</div>
 
 			<div class="form-element">
 				<label for="categories">Category</label>
-				<form:select path="categories" items="${formCategories}" itemLabel="categoryName"
-						itemValue="categoryId" multiple="true" size="5" />
+				<form:select path="categories" items="${formCategories}"
+					itemLabel="categoryName" itemValue="categoryId" multiple="true"
+					size="5" />
 			</div>
-
+			<div class="form-element">
+				<input type="button" value="Add Category" onclick="newCategory();" />
+			</div>
 			<div class="form-element">
 				<label for="snippet">Snippet</label>
 				<form:textarea path="snippet" htmlEscape="true" />
@@ -44,5 +42,4 @@
 			</div>
 		</form:form>
 	</div>
-</body>
-</html>
+<%@include file="footer.jsp" %>
