@@ -17,7 +17,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int userId;
+	private Long userId;
 
 	private boolean enabled;
 
@@ -38,12 +38,19 @@ public class User {
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
-	public int getUserId() {
+	
+	public User() {
+		
+	}
+	public User(Long userId) {
+		this.userId =  userId;
+	}
+	
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
