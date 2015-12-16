@@ -1,14 +1,57 @@
 * {
-	font-family: Tahoma;
-	font-size: 12px;
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 }
 
+html {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 13px;
+	line-height: 1.2em;
+	font-family: Helvetica, Arial, Sans-serif;
+}
+
+.container {
+	margin: 0px;
+	padding: 10px;
+}
+
+.form {
+	
+}
+
+.form-element {
+	display: block;
+	line-height: 1.5em;
+	padding: 8px;
+}
+form .form-element label { 
+    width: 250px;
+    display: block;
+    padding: 2px;
+}
 #main-container {
 	margin: 10px auto;
 	width: 960px;
 }
+select#categories {
+    width: 200px;
+}
+select#categories > option {
+    padding: 7px;
+}
+
+textarea {
+	width: 500px;
+	height: 400px;
+}
+
+
 
 footer {
 	margin: 50px;

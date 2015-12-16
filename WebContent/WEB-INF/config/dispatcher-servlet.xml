@@ -2,9 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- This file for particular servlet only. -->
 	<!-- In this file, configure the following things only: View Resolveers, 
@@ -15,7 +15,7 @@
 	<context:component-scan base-package="org.snippetkeeper.controller" />
 
 	<!-- Do Request Mapping -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven conversion-service="conversionService" />
 
 	<!-- View Resolver -->
 	<bean
@@ -25,10 +25,12 @@
 	</bean>
 
 	<!-- routing the resources folder, if path has resources redirect to WEB-INF/resources -->
+	<mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/" />
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
-	<import resource="internationalization.xml" />
 
+	<import resource="internationalization.xml" />
+	
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />
@@ -44,5 +46,15 @@
 		<property name="basenames" value="welcome" />
 	</bean>
 
-
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="org.snippetkeeper.formatter.CategoryFormatter">
+				</bean>
+				<bean class="org.snippetkeeper.formatter.LanguageFormatter">
+				</bean>
+			</set>
+		</property>
+	</bean>
 </beans>
