@@ -14,3 +14,36 @@ footer {
 	margin: 50px;
 	text-align: center;
 }
+
+#errors, .error {
+	color: red;
+}
+
+.right {
+	float: right;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+header {
+	margin-bottom: 10px;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:active {
+	color: red;
+}
+
+table tr {
+	height: 25px;
+}
+
+#success {
+	color: green;
+}

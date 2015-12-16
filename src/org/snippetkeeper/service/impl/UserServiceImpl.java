@@ -19,4 +19,14 @@ public class UserServiceImpl implements UserService {
 		userRepository.save(user);
 	}
 
+	@Override
+	public boolean isExisted(String username) {
+		User user = userRepository.getUserByUsername(username);
+		if(user == null){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 }
