@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.snippetkeeper.domain.Category;
 import org.snippetkeeper.domain.Language;
 import org.snippetkeeper.domain.Snippet;
+import org.snippetkeeper.domain.User;
 import org.snippetkeeper.service.CategoryService;
 import org.snippetkeeper.service.LanguageService;
 import org.snippetkeeper.service.SnippetService;
@@ -35,6 +36,7 @@ public class SnippetController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addSnippet(@ModelAttribute("newSnippet") Snippet snippet, Model model) {
+		// TODO - keep this is model attribute
 		List<Language> languages = languageService.findAll();
 		model.addAttribute("languagesAvilable", languages);
 
@@ -45,16 +47,13 @@ public class SnippetController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addSnippet(@Valid @ModelAttribute("newSnippet") Snippet snippet, BindingResult result) {
+		
 		if (result.hasErrors()) {
-			return "forward:/add";
+			return "addSnippet";
 		}
-
+		
 		snippetService.save(snippet);
 		return "addSnippet";
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.setDisallowedFields(new String[]{"user"});
-	}
 }

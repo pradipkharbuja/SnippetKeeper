@@ -23,7 +23,6 @@ public class LanguageFormatter implements Formatter<Language> {
 		Language language = null;
 		try {
 			language = langaugeService.getLanguage(source);
-			System.out.println(print(language, locale));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -24,7 +24,6 @@ public class CategoryFormatter implements Formatter<Category> {
 		try {
 			Long id = Long.parseLong(source);
 			category = categoryService.getCateogry(id);
-			System.out.println(print(category, locale));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -2,7 +2,6 @@ package org.snippetkeeper.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -24,8 +22,7 @@ public class Snippet {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="userId")
 	private User user;
 	
@@ -38,7 +35,7 @@ public class Snippet {
 	private Language language;
 	
 	@Valid
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "Snippet_Category", 
     joinColumns = { @JoinColumn(name = "id") }, 
     inverseJoinColumns = { @JoinColumn(name = "categoryId") })
@@ -47,6 +44,12 @@ public class Snippet {
 	@NotEmpty
 	private String snippet;
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getTitle() {
 		return title;
 	}
