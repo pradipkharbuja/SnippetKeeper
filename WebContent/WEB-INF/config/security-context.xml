@@ -11,7 +11,7 @@
 
 		<!-- Spring 4 default URL is also /login -->
 		<security:form-login login-page="/login"
-			login-processing-url="/login" />
+			login-processing-url="/login" default-target-url="/login-success" />
 
 		<!-- to disable CSRF protection -->
 		<security:csrf disabled="true" />

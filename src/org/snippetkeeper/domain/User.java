@@ -98,6 +98,6 @@ public class User {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return getUsername() + " " + getEmail();
+		return getUserId() + " " + getUsername() + " " + getEmail();
 	}
 }
