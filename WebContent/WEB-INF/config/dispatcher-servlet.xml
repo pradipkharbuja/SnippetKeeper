@@ -28,4 +28,21 @@
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
 	<import resource="internationalization.xml" />
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+
+	<bean id="messageAccessor"
+		class="org.springframework.context.support.MessageSourceAccessor">
+		<constructor-arg ref="messageSource" />
+	</bean>
+	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="welcome" />
+	</bean>
+
+
 </beans>

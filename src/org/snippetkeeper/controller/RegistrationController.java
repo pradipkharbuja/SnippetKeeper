@@ -10,6 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RequestMapping("/registration")
 @Controller
@@ -17,18 +19,28 @@ public class RegistrationController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(@ModelAttribute("user") User user) {
 		return "registration";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String indexPost(@Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String indexPost(@Valid @ModelAttribute("user") User user, BindingResult result,
+			RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
 			return "registration";
 		}
 		userService.addUser(user);
-		return "registration";
+
+		redirectAttributes.addFlashAttribute("message",
+				"You have been successfully registered in our system! Please login to continue.");
+
+		return "redirect:/login";
+	}
+
+	@RequestMapping(value = "/validate", method = RequestMethod.POST)
+	public @ResponseBody Object validate(String username) {
+		return "" + userService.isExisted(username);
 	}
 }

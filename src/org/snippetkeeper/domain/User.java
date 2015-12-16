@@ -1,12 +1,15 @@
 package org.snippetkeeper.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -19,10 +22,18 @@ public class User {
 	private boolean enabled;
 
 	@NotEmpty
+	@Column(unique = true)
 	private String username;
 
+	@NotEmpty
+	@Size(min = 6, max = 100)
 	private String password;
+
+	@NotEmpty
 	private String fullName;
+
+	@Email
+	@NotEmpty
 	private String email;
 
 	@Enumerated(EnumType.STRING)
@@ -82,5 +93,11 @@ public class User {
 
 	public void setRole(Role role) {
 		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getUsername() + " " + getEmail();
 	}
 }

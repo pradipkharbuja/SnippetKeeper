@@ -13,8 +13,9 @@
 		<security:form-login login-page="/login"
 			login-processing-url="/login" />
 
-		<security:logout logout-success-url="/index"
-			invalidate-session="true" />
+		<!-- to disable CSRF protection -->
+		<security:csrf disabled="true" />
+
 		<security:http-basic />
 	</security:http>
 

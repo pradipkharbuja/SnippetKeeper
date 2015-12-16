@@ -11,12 +11,25 @@
 </c:if>
 <form action="login" method="post">
 	<input type="hidden" name="${_csrf.parameterName}"
-		value="${_csrf.token}" /> <label for="username"><spring:message
-			code="username" text="User Name" />: </label> <input id="username"
-		type="text" name="username" /> <label for="password"><spring:message
-			code="password" text="Password" />: </label><input type="password"
-		id="password" name="password"> <input type="submit"
-		value="Submit">
+		value="${_csrf.token}" />
+
+	<div id="success">${message}</div>
+
+	<table>
+		<tr>
+			<td><label for="username"><spring:message
+						code="username" text="User Name" />: </label></td>
+			<td><input id="username" type="text" name="username" /></td>
+		</tr>
+		<tr>
+			<td><label for="password"><spring:message
+						code="password" text="Password" />: </label></td>
+			<td><input type="password" id="password" name="password"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Submit"></td>
+		</tr>
+	</table>
 </form>
 
 <%@include file="footer.jsp"%>

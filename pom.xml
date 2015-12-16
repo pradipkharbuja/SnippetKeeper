@@ -30,7 +30,12 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>4.0.3.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<!-- 4.0.3 doesn't support isAuthenticated() method used in header.jsp -->
+			<version>3.2.5.RELEASE</version>
+		</dependency>
 		<!-- For Spring Security upto here -->
 
 		<!-- MySQL -->
@@ -83,7 +88,12 @@
 			<version>4.3.1.Final</version>
 		</dependency>
 
-
+		<!-- Object to JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-base</artifactId>
+			<version>2.4.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
