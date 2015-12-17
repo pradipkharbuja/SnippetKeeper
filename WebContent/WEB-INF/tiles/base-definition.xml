@@ -47,16 +47,20 @@
 		<put-attribute name="body" value="/WEB-INF/views/registration.jsp" />
 	</definition>
 	
-	<!-- Add Snippet Controller -->
+	<!-- Snippet Controller -->
 	<definition name="addSnippet" extends="baseLayout">
 		<put-attribute name="title" value="Home" />		
 		<put-attribute name="body" value="/WEB-INF/views/addSnippet.jsp" />
 	</definition>
 	
-	<!-- Snippet Controller -->
 	<definition name="snippets" extends="baseLayout">
 		<put-attribute name="title" value="Snippet" />		
 		<put-attribute name="body" value="/WEB-INF/views/snippets.jsp" />
+	</definition>
+	
+	<definition name="snippetDetail" extends="baseLayout">
+		<put-attribute name="title" value="Snippet" />		
+		<put-attribute name="body" value="/WEB-INF/views/snippetDetail.jsp" />
 	</definition>
 		
 </tiles-definitions>

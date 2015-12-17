@@ -54,19 +54,21 @@ public class SnippetController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String addSnippet(@ModelAttribute("newSnippet") Snippet snippet, Model model) {
-		// TODO - keep this is model attribute
+	public String addSnippet(@ModelAttribute("newSnippet") Snippet snippet, Model model, HttpServletRequest request) {
+		Object userId = request.getSession().getAttribute("userId");
+		Long uId = (Long) userId;
+		
 		List<Language> languages = languageService.findAll();
 		model.addAttribute("languagesAvilable", languages);
 
-		List<Category> avilableCategories = categoryService.getCategoriesByUser(1l);
+		List<Category> avilableCategories = categoryService.getCategoriesByUser(uId);
 		model.addAttribute("formCategories", avilableCategories);
 		return "addSnippet";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addSnippet(@Valid @ModelAttribute("newSnippet") Snippet snippet, BindingResult result,
-			HttpServletRequest request) {
+			HttpServletRequest request, Model model) {
 
 		Object userId = request.getSession().getAttribute("userId");
 		Long uId = (Long) userId;
@@ -74,11 +76,16 @@ public class SnippetController {
 		snippet.setUser(user);
 
 		if (result.hasErrors()) {
+			List<Language> languages = languageService.findAll();
+			model.addAttribute("languagesAvilable", languages);
+
+			List<Category> avilableCategories = categoryService.getCategoriesByUser(1l);
+			model.addAttribute("formCategories", avilableCategories);
 			return "addSnippet";
 		}
 
 		snippetService.save(snippet);
-		return "addSnippet";
+		return "redirect:/snippet";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -88,7 +95,7 @@ public class SnippetController {
 		Object userId = request.getSession().getAttribute("userId");
 		Long uId = (Long) userId;
 		User user = userService.getUser(uId);
-		if(snippet != null) {
+		if (snippet != null) {
 			if (user.getUserId() == snippet.getUser().getUserId()) {
 				model.addAttribute("snippet", snippet);
 				return "snippetDetail";
@@ -96,6 +103,24 @@ public class SnippetController {
 		}
 		throw new SnippetNotFoundException(String.valueOf(id));
 	}
+	
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String deleteSnippet(@PathVariable Long id, HttpServletRequest request, Model model) {
+		Snippet snippet = snippetService.getSnippet(id);
+		// get current user
+		Object userId = request.getSession().getAttribute("userId");
+		Long uId = (Long) userId;
+		User user = userService.getUser(uId);
+		if (snippet != null) {
+			if (user.getUserId() == snippet.getUser().getUserId()) {
+				snippetService.delete(id);
+				return "redirect:/snippet";
+			}
+		}
+		throw new SnippetNotFoundException(String.valueOf(id));
+	}
+	
+	
 
 	@ExceptionHandler(SnippetNotFoundException.class)
 	public ModelAndView handleError(HttpServletRequest req, SnippetNotFoundException exception) {

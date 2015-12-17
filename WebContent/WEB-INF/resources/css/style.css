@@ -70,7 +70,8 @@ form .form-element label {
 }
 
 .btn.btn-success {
-	background-color: #16A085;
+    background-color: #16A085;
+    border-color: #16A085;
 }
 
 .btn.btn-success:hover, .btn.btn-success:focus, .btn.btn-success:active
@@ -156,15 +157,82 @@ table tr {
 }
 
 #formInput {
-	position: absolute;
-	top: 200px;
-	left: 275px;
-	background-color: LightCyan;
-	width: 375px;
-	height: 270px;
-	z-index: 9002;
-	border-style: solid;
-	border-color: blue;
+    position: absolute;
+    top: 280px;
+    left: 405px;
+    background-color: #333;
+    width: 375px;
+    height: 105px;
+    z-index: 9002;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 20px #ddd;
+}
+#formInput h4 a {
+	color: #444;
+	cursor: pointer;
+}
+div#alertMessage.success {
+    color: green;
+    background: #fff;
+    padding: 15px 7px;
+    border-radius: 2px;
+    border-left: 10px solid #43AC6A;
+    border-right: 1px solid #43AC6A;
+    border-top: 1px solid #43AC6A;
+    border-bottom: 1px solid #43AC6A;
+}
+div#alertMessage.error {
+    color: #CC7691;
+    background: #fff;
+    padding: 15px 7px;
+    border-radius: 2px;
+    border-left: 10px solid #CC7691;
+    border-right: 1px solid #CC7691;
+    border-top: 1px solid #CC7691;
+    border-bottom: 1px solid #CC7691;
+}
+.CodeMirror.cm-s-default {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin: 10px;
+    margin-top: 0px;
+}
+.btn.btn-danger {
+    background: #F04124;
+    border: 1px solid red;
+}
+ul#snippetList li {
+    padding: 10px 5px;
+    list-style-type: none;
+    font-size: 16px;
+}
+.snippet {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px;
+    color: #555;
+    border-top: 1px solid #e5e5e5;
+}
+
+.snippet a {
+    color: #00558B;
+}
+.snippet span.pull-right {
+    font-size: 15px;
+    color: #555;
+}
+a.btn.btn-warning {
+    background: #E68940;
+}
+div#snippetTitle {
+    background: #F7F7F7;
+    border: 1px solid #ccc;
+    border-radius: 4px 4px 0px 0px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
 }
 
 #result {

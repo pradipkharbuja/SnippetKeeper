@@ -46,6 +46,12 @@ public class Snippet {
 	@Type(type="text")
 	private String snippet;
 	
+	public Long getSnippetId() {
+		return snippetId;
+	}
+	public void setSnippetId(Long snippetId) {
+		this.snippetId = snippetId;
+	}
 	public User getUser() {
 		return user;
 	}
