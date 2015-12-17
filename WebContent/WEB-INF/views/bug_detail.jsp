@@ -5,6 +5,6 @@
 <p><spring:message code="bugDetails.sucessful" text="default"/></p>
 <p>${bug.title}</p>
 <p>${bug.content}</p>
-<p>${bug.email}</p>
+<p>${bug.user.email}</p>
 
 <img src="<c:url value="/resource/images/${bug.imagePath}.png"></c:url>" alt="image"  style = "width:100%"/> 

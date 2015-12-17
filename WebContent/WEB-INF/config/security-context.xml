@@ -11,10 +11,20 @@
 
 		<security:intercept-url pattern="/snippet/**"
 			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-
+		
 		<security:intercept-url pattern="/category/**"
 			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
-
+		
+		<security:intercept-url pattern="/bug/add"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+			
+		<security:intercept-url pattern="/bug/detail/**"
+			access="hasRole('ROLE_ADMIN')" />
+			
+		<security:intercept-url pattern="/bug/list/**"
+			access="hasRole('ROLE_ADMIN')" />
+		
+		
 		<!-- Spring 4 default URL is also /login -->
 		<security:form-login login-page="/login"
 			login-processing-url="/login" default-target-url="/login-success" />

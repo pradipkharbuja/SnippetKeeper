@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.hibernate.validator.constraints.Email;
@@ -17,9 +19,10 @@ public class Bug {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@NotEmpty
-	@Email
-	private String email;
+	
+	@OneToOne
+	@JoinColumn(name="userId")
+	private User user;
 	
 	@NotEmpty
 	private String title;
@@ -40,12 +43,15 @@ public class Bug {
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
+	
+	
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getTitle() {
