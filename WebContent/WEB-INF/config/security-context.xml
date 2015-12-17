@@ -8,14 +8,23 @@
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/admin/**"
 			access="hasRole('ROLE_ADMIN')" />
+			
+		<security:intercept-url pattern="/snippet/**"
+			access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
 
 		<!-- Spring 4 default URL is also /login -->
 		<security:form-login login-page="/login"
-			login-processing-url="/login" />
+			login-processing-url="/login" default-target-url="/login-success" />
 
+		<!-- to disable CSRF protection -->
+		<security:csrf disabled="true" />
+
+<<<<<<< HEAD
 		<security:logout logout-success-url="/index"
 			invalidate-session="true" />
 			
+=======
+>>>>>>> 5e8c7ae3db440fcfb79c73c3adf630d55792d326
 		<security:http-basic />
 		<security:csrf disabled="true"/>
 	</security:http>

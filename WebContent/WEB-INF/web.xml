@@ -48,4 +48,15 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/error-pages/page-not-found.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/error-pages/access-denied.jsp</location>
+	</error-page>
+
+
 </web-app>

@@ -1,12 +1,10 @@
 package org.snippetkeeper.repository;
 
-import org.snippetkeeper.domain.User;
+import org.snippetkeeper.domain.Snippet;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository  extends CrudRepository<User, Long>{
+public interface SnippetRepository extends CrudRepository<Snippet, Long>{
 
-	public User getUserByUsername(String user);
-	
 }
