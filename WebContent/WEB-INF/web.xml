@@ -50,12 +50,12 @@
 
 	<error-page>
 		<error-code>404</error-code>
-		<location>/WEB-INF/error-pages/page-not-found.jsp</location>
+		<location>/WEB-INF/views/error-pages/page-not-found.jsp</location>
 	</error-page>
 
 	<error-page>
 		<error-code>403</error-code>
-		<location>/WEB-INF/error-pages/access-denied.jsp</location>
+		<location>/WEB-INF/views/error-pages/access-denied.jsp</location>
 	</error-page>
 
 
