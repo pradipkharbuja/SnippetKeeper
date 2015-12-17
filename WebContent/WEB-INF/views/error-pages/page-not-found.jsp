@@ -9,7 +9,10 @@
 <body>
 	<div style="text-align: center; margin:10px;">
 		<img alt="Not Found" src="resources/images/not-found.png">
-
+		
+		<p class="notFoundMessage">
+			${message}
+		</p>
 		<p style="margin: 10px">
 			<a href="">Go to Home</a>
 		</p>

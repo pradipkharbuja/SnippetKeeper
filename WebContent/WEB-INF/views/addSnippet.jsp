@@ -2,9 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-
 <div class="container">
-	<form:form commandName="newSnippet" action="add" method="post">
+	<form:form commandName="newSnippet" action="snippet/add" method="post">
 
 		<form:errors path="*" cssStyle="color: red" />
 
