@@ -70,6 +70,7 @@ public class SnippetController {
 
 		Object userId = request.getSession().getAttribute("userId");
 		Long uId = (Long) userId;
+		System.out.println(uId);
 		User user = userService.getUser(uId);
 		snippet.setUser(user);
 
