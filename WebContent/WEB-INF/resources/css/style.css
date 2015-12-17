@@ -11,8 +11,7 @@ html {
 body {
 	margin: 0px;
 	padding: 0px;
-	font-size: 13px;
-	line-height: 1.2em;
+	font-size: 13px;	
 	font-family: Helvetica, Arial, Sans-serif;
 }
 
@@ -30,28 +29,30 @@ body {
 	line-height: 1.5em;
 	padding: 8px;
 }
-form .form-element label { 
-    width: 250px;
-    display: block;
-    padding: 2px;
+
+form .form-element label {
+	width: 250px;
+	display: block;
+	padding: 2px;
 }
+
 #main-container {
 	margin: 10px auto;
 	width: 960px;
 }
+
 select#categories {
-    width: 200px;
+	width: 200px;
 }
-select#categories > option {
-    padding: 7px;
+
+select#categories>option {
+	padding: 7px;
 }
 
 textarea {
 	width: 500px;
 	height: 400px;
 }
-
-
 
 footer {
 	margin: 50px;

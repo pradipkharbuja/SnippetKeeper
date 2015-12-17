@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<%@include file="header.jsp"%>
-
-<h1>Login Page</h1>
+<h1>
+	<spring:message code="login-page" text="Login Page" />
+</h1>
 <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
 	<font color="red"> Your login attempt was not successful due to
 		<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />.
@@ -27,9 +27,8 @@
 			<td><input type="password" id="password" name="password"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="Submit"></td>
+			<td colspan="2"><input type="submit"
+				value='<spring:message code="submit" text="Submit" />'></td>
 		</tr>
 	</table>
 </form>
-
-<%@include file="footer.jsp"%>
