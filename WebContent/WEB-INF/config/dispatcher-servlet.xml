@@ -24,13 +24,30 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<!-- Tiles Resolver -->
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="-2" />
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/base-definition.xml</value>
+			</list>
+		</property>
+	</bean>
+
 	<!-- routing the resources folder, if path has resources redirect to WEB-INF/resources -->
 	<mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/" />
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
 
 	<import resource="internationalization.xml" />
-	
+
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />
@@ -40,7 +57,7 @@
 		class="org.springframework.context.support.MessageSourceAccessor">
 		<constructor-arg ref="messageSource" />
 	</bean>
-	
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames" value="welcome" />
