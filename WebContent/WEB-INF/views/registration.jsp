@@ -1,8 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<%@include file="header.jsp"%>
-
 <h1>
 	<spring:message code="registration" text="Registration" />
 </h1>
@@ -38,5 +36,3 @@
 		</tr>
 	</table>
 </form:form>
-
-<%@include file="footer.jsp"%>

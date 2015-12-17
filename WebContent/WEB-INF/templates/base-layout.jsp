@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%><%@ taglib prefix="tiles"
 	uri="http://tiles.apache.org/tags-tiles"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,9 @@
 
 		<tiles:insertAttribute name="body" />
 
-		<footer>Developed By Synergy @ 2015 December</footer>
+		<footer>
+			<spring:message code="developed-by" text="Developed By Synergy @ 2015 December"/>
+		</footer>
 	</div>
 </body>
 </html>
