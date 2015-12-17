@@ -11,9 +11,7 @@ function categorySubmit() {
 		data : dataToSend,
 		contentType : 'application/json', // Sends
 		success : function() {
-			$('#errors').html("");
-			$("#result").append('<H3 align="center"> OKAY!! <H3>');
-			$('#result').show();
+			$("#alertMessage").html('Category added successfully !!').addClass("success").removeClass("error");
 		},
 
 		error : function(errorObject) {
@@ -21,16 +19,12 @@ function categorySubmit() {
 			// error: function(jQuery XMLHttpRequest, "error", "Bad Request" ){
 
 			if (errorObject.responseJSON.errorType == "ValidationError") {
-				$('#success').html("");
-				$("#errors").append('<H3 align="center"> Error(s)!! <H3>');
-				$("#result").append('<p>');
+				$("#alertMessage").html('').removeClass("success").addClass("error");
 
 				var errorList = errorObject.responseJSON.errors;
 				$.each(errorList, function(i, error) {
-					$("#errors").append(error.message + '<br>');
+					$("#alertMessage").append(error.message + '<br>');
 				});
-				$("#errors").append('</p>');
-				$('#result').show();
 			} else {
 				alert(errorObject.responseJSON.errors(0)); // "non" Validation
 															// Error

@@ -16,7 +16,14 @@
 	<c:if test="${!noSnippets}">
 		<ul id="snippetList">
 			<c:forEach var="snippet" items="${snippets}">
-				<li>${snippet.title}</li>
+				<li>
+					<div class="snippet">
+						<span><a
+							href="snippet/${snippet.snippetId}">${snippet.title}</a> <span
+							class="pull-right">${snippet.language.langName}</span>
+					</div>
+				</li>
+
 			</c:forEach>
 		</ul>
 	</c:if>

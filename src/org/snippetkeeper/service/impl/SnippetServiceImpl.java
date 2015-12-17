@@ -31,4 +31,9 @@ public class SnippetServiceImpl implements SnippetService {
 		return snippetRepository.findOne(snippetId);
 	}
 
+	@Override
+	public void delete(Long id) {
+		snippetRepository.delete(id);
+	}
+
 }

@@ -12,4 +12,6 @@ public interface SnippetService {
 
 	Snippet getSnippet(Long snippetId);
 
+	void delete(Long id);
+
 }
