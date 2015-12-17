@@ -15,7 +15,9 @@
 
 		<security:logout logout-success-url="/index"
 			invalidate-session="true" />
+			
 		<security:http-basic />
+		<security:csrf disabled="true"/>
 	</security:http>
 
 	<security:authentication-manager>
