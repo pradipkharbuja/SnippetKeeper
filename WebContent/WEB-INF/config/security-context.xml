@@ -18,13 +18,9 @@
 
 		<!-- to disable CSRF protection -->
 		<security:csrf disabled="true" />
-
-<<<<<<< HEAD
 		<security:logout logout-success-url="/index"
 			invalidate-session="true" />
 			
-=======
->>>>>>> 5e8c7ae3db440fcfb79c73c3adf630d55792d326
 		<security:http-basic />
 		<security:csrf disabled="true"/>
 	</security:http>

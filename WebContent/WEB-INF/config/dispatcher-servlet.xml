@@ -32,12 +32,8 @@
 	<!-- routing the resources folder, if path has resources redirect to WEB-INF/resources -->
 	<mvc:resources mapping="/css/**" location="/WEB-INF/resources/css/" />
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
-<<<<<<< HEAD
- <mvc:default-servlet-handler/>
-=======
-
-
->>>>>>> 5e8c7ae3db440fcfb79c73c3adf630d55792d326
+ 
+ 	<mvc:default-servlet-handler/>
 	<import resource="internationalization.xml" />
 	
 	<bean id="validator"
