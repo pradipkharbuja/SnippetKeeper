@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/templates/base-layout.jsp">
+		<put-attribute name="title" value="" />			
+		<put-attribute name="body" value="" />		
+	</definition>
+	
+	<!-- Admin Controller -->
+	<definition name="admin" extends="baseLayout">
+		<put-attribute name="title" value="Login" />		
+		<put-attribute name="body" value="/WEB-INF/views/admin.jsp" />
+	</definition>
+	
+	<!-- Home Controller -->
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="Home" />		
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	
+	<!-- Login Controller -->
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />		
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	
+	<!-- Registration Controller -->
+	<definition name="registration" extends="baseLayout">
+		<put-attribute name="title" value="Login" />		
+		<put-attribute name="body" value="/WEB-INF/views/registration.jsp" />
+	</definition>
+	
+	<!-- Snippet Controller -->
+	<definition name="addSnippet" extends="baseLayout">
+		<put-attribute name="title" value="Home" />		
+		<put-attribute name="body" value="/WEB-INF/views/addSnippet.jsp" />
+	</definition>
+		
+</tiles-definitions>
