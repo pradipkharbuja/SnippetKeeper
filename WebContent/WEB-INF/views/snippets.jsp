@@ -3,8 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <div class="container">
-	<h1>Snippet</h1>
-
+	<div class="snapper">
+		<h1>Snippet</h1>
+		<a class="btn btn-success" href="snippet/add">Add Snippet</a>
+	</div>
 	<c:if test="${noSnippets}">
 		<div class="emptyMessage">
 			<p>No Snippet Found</p>

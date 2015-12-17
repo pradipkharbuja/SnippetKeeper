@@ -10,4 +10,6 @@ public interface CategoryService {
 
 	Category getCateogry(Long categoryId);
 
+	void saveCategory(Category category);
+
 }

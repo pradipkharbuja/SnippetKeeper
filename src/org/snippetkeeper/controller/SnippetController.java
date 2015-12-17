@@ -70,7 +70,6 @@ public class SnippetController {
 
 		Object userId = request.getSession().getAttribute("userId");
 		Long uId = (Long) userId;
-		System.out.println(uId);
 		User user = userService.getUser(uId);
 		snippet.setUser(user);
 
@@ -90,12 +89,12 @@ public class SnippetController {
 		Long uId = (Long) userId;
 		User user = userService.getUser(uId);
 		if(snippet != null) {
-			if (user.getUserId() != snippet.getUser().getUserId()) {
+			if (user.getUserId() == snippet.getUser().getUserId()) {
 				model.addAttribute("snippet", snippet);
 				return "snippetDetail";
 			}
 		}
-		throw new SnippetNotFoundException(String.valueOf(id));	
+		throw new SnippetNotFoundException(String.valueOf(id));
 	}
 
 	@ExceptionHandler(SnippetNotFoundException.class)

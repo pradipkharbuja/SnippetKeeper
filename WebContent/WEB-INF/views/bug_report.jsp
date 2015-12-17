@@ -1,6 +1,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<div class="workflow-box">
+<h1>Report Bug</h1>
 <form:form modelAttribute="bug" enctype="multipart/form-data">
 
 	<table>
@@ -31,3 +33,4 @@
 		</tr>
 	</table>
 </form:form>
+</div>

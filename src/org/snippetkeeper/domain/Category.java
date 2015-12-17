@@ -22,8 +22,7 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long categoryId;
 	
-	@NotNull
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="userId")
 	private User user;
 	
@@ -33,6 +32,13 @@ public class Category {
 	@ManyToMany(mappedBy = "categories")
 	private List<Snippet> snippet;
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Long getCategoryId() {
 		return categoryId;

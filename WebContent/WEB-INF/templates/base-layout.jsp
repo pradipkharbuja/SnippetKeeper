@@ -4,7 +4,6 @@
 	prefix="security"%><%@ taglib prefix="tiles"
 	uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,15 +15,12 @@
 <script type="text/javascript" src="resources/js/scripts.js"></script>
 </head>
 <body>
-	<div id="main-container">
-		<!-- Its closing is in footer.jsp -->
+	<div class="container-fluid">
 		<header>
-			<c:set var="link"
-				value="${requestScope['javax.servlet.forward.request_uri']}?language=" />
-			<a href="${link}en_US">English</a> | <a href="${link}ne_NP">नेपाली</a>
-			| <a href="${link}zh_CN">中文</a>
-
-			<div class="right">
+			<div class="pull-left">
+				<img class="logo" src="resources/images/logo.jpg" width="200" />
+			</div>
+			<div class="pull-right">
 
 				<security:authorize access="isAuthenticated()">
 					Welcome <span class="bold"><security:authentication
@@ -36,11 +32,18 @@
 				</security:authorize>
 			</div>
 		</header>
-
-		<tiles:insertAttribute name="body" />
-
+		<div id="main-container">
+			<tiles:insertAttribute name="body" />
+		</div>
 		<footer>
-			<spring:message code="developed-by" text="Developed By Synergy @ 2015 December"/>
+			<spring:message code="developed-by"
+				text="Developed By Synergy @ 2015 December" />
+			<div id="language">
+				<c:set var="link"
+					value="${requestScope['javax.servlet.forward.request_uri']}?language=" />
+				<a href="${link}en_US">English</a> | <a href="${link}ne_NP">नेपाली</a>
+				| <a href="${link}zh_CN">中文</a>
+			</div>
 		</footer>
 	</div>
 </body>

@@ -13,6 +13,22 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin.jsp" />
 	</definition>
 	
+	<!-- Bug Controller -->
+	<definition name="bug_report" extends="baseLayout">
+		<put-attribute name="title" value="Bug" />		
+		<put-attribute name="body" value="/WEB-INF/views/bug_report.jsp" />
+	</definition>
+	
+	<definition name="bug_detail" extends="baseLayout">
+		<put-attribute name="title" value="Bug" />		
+		<put-attribute name="body" value="/WEB-INF/views/bug_detail.jsp" />
+	</definition>
+	
+	<definition name="bug_list" extends="baseLayout">
+		<put-attribute name="title" value="Bug" />		
+		<put-attribute name="body" value="/WEB-INF/views/bug_list.jsp" />
+	</definition>
+	
 	<!-- Home Controller -->
 	<definition name="home" extends="baseLayout">
 		<put-attribute name="title" value="Home" />		
@@ -31,10 +47,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/registration.jsp" />
 	</definition>
 	
-	<!-- Snippet Controller -->
+	<!-- Add Snippet Controller -->
 	<definition name="addSnippet" extends="baseLayout">
 		<put-attribute name="title" value="Home" />		
 		<put-attribute name="body" value="/WEB-INF/views/addSnippet.jsp" />
+	</definition>
+	
+	<!-- Snippet Controller -->
+	<definition name="snippets" extends="baseLayout">
+		<put-attribute name="title" value="Snippet" />		
+		<put-attribute name="body" value="/WEB-INF/views/snippets.jsp" />
 	</definition>
 		
 </tiles-definitions>

@@ -15,8 +15,10 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("userId")
 public class LoginController {
 
 	@Autowired
@@ -44,13 +46,12 @@ public class LoginController {
 		if (user == null) {
 			return "redirect:/login";
 		}
-
 		request.getSession().setAttribute("userId", user.getUserId());
 
 		if (request.isUserInRole(Role.ROLE_ADMIN.toString())) {
 			return "redirect:/admin";
 		} else {
-			return "redirect:/user";
+			return "redirect:/snippet";
 		}
 	}
 }

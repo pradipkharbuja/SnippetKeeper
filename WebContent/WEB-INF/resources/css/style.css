@@ -11,7 +11,7 @@ html {
 body {
 	margin: 0px;
 	padding: 0px;
-	font-size: 13px;	
+	font-size: 13px;
 	font-family: Helvetica, Arial, Sans-serif;
 }
 
@@ -39,19 +39,58 @@ form .form-element label {
 #main-container {
 	margin: 10px auto;
 	width: 960px;
+	min-height: 450px;
+}
+
+.hero-container {
+	text-align: center;
+	line-height: 2;
+}
+
+.hero-container h1 {
+	font-size: 45px;
+	color: #1EA9CD;
+}
+
+.hero-container p {
+	color: #555;
+	font-size: 18px;
+}
+
+.hero-container .btn {
+	padding: 12px 30px;
+	font-size: 16px;
+}
+
+.btn {
+	padding: 8px;
+	border-radius: 2px;
+	background-color: #F4F4F4;
+	color: #fff;
+}
+
+.btn.btn-success {
+	background-color: #16A085;
+}
+
+.btn.btn-success:hover, .btn.btn-success:focus, .btn.btn-success:active
+	{
+	background-color: #006666;
 }
 
 select#categories {
-	width: 200px;
+    width: 200px;
+    border: 1px solid #ccc;
 }
-
 select#categories>option {
 	padding: 7px;
 }
 
 textarea {
-	width: 500px;
-	height: 400px;
+    width: 500px;
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
 }
 
 footer {
@@ -63,8 +102,12 @@ footer {
 	color: red;
 }
 
-.right {
+.pull-right {
 	float: right;
+}
+
+.pull-left {
+	float: left;
 }
 
 .bold {
@@ -73,15 +116,34 @@ footer {
 
 header {
 	margin-bottom: 10px;
+	height: 70px;
+	padding: 10px;
+	background: #fff;
+}
+
+.container-fluid {
+	width: 100%;
+	background: #F5F5F5;
+	padding: 2px;
+	margin: 0px;
+}
+
+footer {
+	margin: 0px;
+	text-align: center;
+	background: #4A4848;
+	color: #f2f2f2;
+	padding: 10px;
+	line-height: 2;
 }
 
 a {
-	color: blue;
+	color: #1FD1E8;
 	text-decoration: none;
 }
 
 a:active {
-	color: red;
+	color: #f2f2f2;
 }
 
 table tr {
@@ -90,4 +152,65 @@ table tr {
 
 #success {
 	color: green;
+}
+
+#formInput {
+	position: absolute;
+	top: 200px;
+	left: 275px;
+	background-color: LightCyan;
+	width: 375px;
+	height: 270px;
+	z-index: 9002;
+	border-style: solid;
+	border-color: blue;
+}
+
+#result {
+	position: absolute;
+	top: 50px;
+	left: 275px;
+	background-color: LightBlue;
+	width: 375px;
+	height: 175px;
+	z-index: 9002;
+	border-style: solid;
+	border-color: blue;
+}
+
+.workflow-box {
+	box-sizing: border-box;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 0 auto 60px;
+	padding: 30px;
+	width: 600px;
+}
+
+input[type="text"], input[type="password"] {
+	border: 1px solid #ccc;
+	border-radius: 3.01px;
+	box-sizing: border-box;
+	font-size: 13px;
+	margin-left: 5px;
+	max-width: 250px;
+	width: 100%;
+	padding: 5px 7px;
+}
+
+.workflow-box>h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding: 3px;
+	color: #444;
+}
+
+form table tr td {
+	padding: 5px;
+}
+
+.snapper {
+	line-height: 2;
+	margin-bottom: 10px;
 }
