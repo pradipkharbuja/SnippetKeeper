@@ -70,7 +70,8 @@ form .form-element label {
 }
 
 .btn.btn-success {
-	background-color: #16A085;
+    background-color: #16A085;
+    border-color: #16A085;
 }
 
 .btn.btn-success:hover, .btn.btn-success:focus, .btn.btn-success:active
@@ -220,6 +221,9 @@ ul#snippetList li {
 .snippet span.pull-right {
     font-size: 15px;
     color: #555;
+}
+a.btn.btn-warning {
+    background: #E68940;
 }
 div#snippetTitle {
     background: #F7F7F7;

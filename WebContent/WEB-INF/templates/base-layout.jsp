@@ -38,6 +38,15 @@
 		<footer>
 			<spring:message code="developed-by"
 				text="Developed By Synergy @ 2015 December" />
+			<br>
+			<security:authorize access="hasRole('ROLE_USER')">
+				<a href="bug/add">Report Bug</a> | <a href="snippet">Snippet</a> | <a
+					href="logout">Log Out</a>
+			</security:authorize>
+			<security:authorize access="hasRole('ROLE_ADMIN')">
+				<a href="bug/list">Bug Reports</a> | <a href="snippet">Snippet</a> | <a
+					href="logout">Log Out</a>
+			</security:authorize>
 			<div id="language">
 				<c:set var="link"
 					value="${requestScope['javax.servlet.forward.request_uri']}?language=" />

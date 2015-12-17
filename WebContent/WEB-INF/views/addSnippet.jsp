@@ -41,7 +41,8 @@
 			</div>
 
 			<div class="form-element">
-				<input type="submit" value="Add Snippet" />
+				<input type="submit" class="btn btn-success" value="Add Snippet" />
+				<a class="btn btn-warning" href="snippet">Back</a>
 			</div>
 		</form:form>
 

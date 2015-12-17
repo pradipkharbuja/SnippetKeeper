@@ -27,6 +27,7 @@
 	<form method="get" action="snippet/delete/${snippet.snippetId}">
 		<div class="form-element">
 			<input type="submit" class="btn btn-danger" value="Delete" />
+			<a class="btn btn-warning" href="snippet">Back</a>
 		</div>
 	</form>
 

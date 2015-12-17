@@ -72,6 +72,7 @@ public class BugReportController {
 		
 		bugService.saveBug(bug);
 		redirect.addFlashAttribute(bug);
+		redirect.addFlashAttribute("successMessage", true);
 		return "redirect:/bug/details";
 	}
 	
