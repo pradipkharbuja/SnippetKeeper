@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -42,6 +43,7 @@ public class Snippet {
 	private List<Category> categories;
 	
 	@NotEmpty
+	@Type(type="text")
 	private String snippet;
 	
 	public User getUser() {

@@ -1,5 +1,7 @@
 package org.snippetkeeper.service.impl;
 
+import java.util.List;
+
 import org.snippetkeeper.domain.Snippet;
 import org.snippetkeeper.repository.SnippetRepository;
 import org.snippetkeeper.service.SnippetService;
@@ -17,6 +19,16 @@ public class SnippetServiceImpl implements SnippetService {
 	@Override
 	public void save(Snippet snippet) {
 		snippetRepository.save(snippet);
+	}
+	
+	@Override
+	public List<Snippet> getSnippet() {
+		return (List<Snippet>) snippetRepository.findAll();
+	}
+	
+	@Override
+	public Snippet getSnippet(Long snippetId) {
+		return snippetRepository.findOne(snippetId);
 	}
 
 }
