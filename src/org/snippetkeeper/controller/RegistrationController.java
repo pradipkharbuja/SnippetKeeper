@@ -40,7 +40,7 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = "/validate", method = RequestMethod.POST)
-	public @ResponseBody Object validate(String username) {
+	public @ResponseBody String validate(String username) {
 		return "" + userService.isExisted(username);
 	}
 }
